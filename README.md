@@ -8,7 +8,7 @@
 - package.json düzenleme
 
 ```js script
-  "type": "module", // const express = require('express'); yerine 
+  "type": "module", // const express = require('express'); yerine
                     // import express from 'express'; yazabiliriz.
   "scripts": {
     "start": "node backend/server.js",
@@ -16,4 +16,13 @@
   },
 ```
 
-- 
+- Temel biçimde express server başlatılıyor
+
+```js script
+import express from 'express'
+
+const PORT = 8080
+const app = express()
+
+app.listen(PORT, () => console.log(`Server ${PORT} üzerinden yayında`))
+```

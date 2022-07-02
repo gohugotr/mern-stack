@@ -16,7 +16,7 @@
   },
 ```
 
-- Temel biçimde express server başlatılıyor
+- Temel biçimde express server `yarn server` ile başlatılıyor. 
 
 ```js script
 import express from 'express'

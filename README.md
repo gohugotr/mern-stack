@@ -35,3 +35,15 @@ import dotenv.config() from 'dotenv'
 dotenv.config()
 const PORT = process.env.PORT
 ```
+
+- Postman'dan kontrol için `localhost:8080` yazıp GET metodunu çalıştırabiliriz
+- `server.js` içinde `app` için ***GET*** metodu oluşturuyoruz. İki parametre alıyor.
+
+```js script
+app.get('/api/notlar',(req, res) => {
+    res.send('Notlar)
+})
+```
+
+- Bundan sonra Postman'dan test için `localhost:8080/api/notlar` yazıp GET metodunu çalıştırabiliriz. 'Notlar' çıktısını verecektir.
+

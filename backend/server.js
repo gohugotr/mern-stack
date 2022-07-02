@@ -7,6 +7,9 @@ dotenv.config()
 const PORT = process.env.PORT
 const app = express()
 
+app.get('/api/notlar',(request,response) => {
+    response.send('Notlar')
+})
 // const serverFonksiyonu = () => {
 //     console.log(`Server ${PORT} üzerinden yayında.`);
 // }

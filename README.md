@@ -46,3 +46,18 @@ app.get('/api/notlar',(req, res) => {
 ```
 
 - Bundan sonra Postman'dan test için `localhost:8080/api/notlar` yazıp GET metodunu çalıştırabiliriz. 'Notlar' çıktısını verecektir.
+- JSON olarak da gönderebiliriz
+
+```js script
+app.get('/api/notlar',(request, response) => {
+    response.json({mesaj:'Notlar'}) // Burada json içine nesne alıyor.
+})
+```
+
+- Çıktı şu şekilde olur.
+
+```js script
+{
+    "Mesaj": "Notlar"
+}
+```

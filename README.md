@@ -16,7 +16,7 @@
   },
 ```
 
-- Temel biçimde express server `yarn server` ile başlatılıyor. 
+- Temel biçimde express server `yarn server` ile başlatılıyor.
 
 ```js script
 import express from 'express'
@@ -46,4 +46,3 @@ app.get('/api/notlar',(req, res) => {
 ```
 
 - Bundan sonra Postman'dan test için `localhost:8080/api/notlar` yazıp GET metodunu çalıştırabiliriz. 'Notlar' çıktısını verecektir.
-

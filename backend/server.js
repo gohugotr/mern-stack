@@ -9,7 +9,15 @@ const app = express()
 
 app.get('/api/notlar',(request,response) => {
     //response.send('Notlar')
-    response.json({Mesaj: 'Notlar'}) // Burada json nesne alıyor.
+    //response.json({Mesaj: 'Notlar'}) // Burada json nesne alıyor.
+
+    const not = {
+        ad: 'İlk Not',
+        icerik: 'İlk içeriğimizdi',
+        oncelik: 3
+    }
+    //response.json(not)
+    response.status(200).json(not)
 })
 // const serverFonksiyonu = () => {
 //     console.log(`Server ${PORT} üzerinden yayında.`);

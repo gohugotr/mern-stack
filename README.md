@@ -61,3 +61,14 @@ app.get('/api/notlar',(request, response) => {
     "Mesaj": "Notlar"
 }
 ```
+
+- **status** kodlarını kullanma yöntemi
+
+```js script
+    const not = {
+        ad: 'İlk Not',
+        icerik: 'İlk içeriğimizdi',
+        oncelik: 3
+    }
+    response.status(200).json(not)
+```

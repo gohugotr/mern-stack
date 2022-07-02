@@ -72,3 +72,27 @@ app.get('/api/notlar',(request, response) => {
     }
     response.status(200).json(not)
 ```
+
+## Rota tanımlama
+
+- routes klasörü altında notRoute.js dosyası oluşturulur.
+
+```js script
+import express from 'express'
+
+const router = express.Router()
+
+router.get('/', (req, res) => {
+  res.status(200).json({ mesaj: 'get notlar' })
+})
+
+export default router
+```
+
+- server.js içinde yeni rota kullanılır
+
+```js script
+import notlarRota from './routes/notRoute.js'
+
+app.use('/api/notlar', notlarRota)
+```

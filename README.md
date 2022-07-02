@@ -26,3 +26,12 @@ const app = express()
 
 app.listen(PORT, () => console.log(`Server ${PORT} üzerinden yayında`))
 ```
+
+- Dotenv paketiyle **.env** değişkenlerini kullanmak için Root dizinde `.env` dosyasını oluşturup içine `PORT=8080` yazıyoruz. Daha sonra `server.js` içinde gerekli düzenlemeyi yapmalıyız.
+
+```js script
+import dotenv.config() from 'dotenv'
+
+dotenv.config()
+const PORT = process.env.PORT
+```

@@ -18,11 +18,16 @@ const router = express.Router()
 //   response.status(200).json({Mesaj: `DELETE Metodu: ${request.params.id} nolu id silindi`})
 // })
 
-import {getNotlar, setNotlar, putNotlar, deleteNotlar} from '../controller/notController.js'
+import { getNotlar, setNotlar, updateNotlar, deleteNotlar } from '../controller/notController.js'
 
-router.get('/', getNotlar)
-router.post('/', setNotlar)
-router.put('/:id', putNotlar)
-router.delete('/:id', deleteNotlar)
+// router.get('/', getNotlar)
+// router.post('/', setNotlar)
+// router.put('/:id', updateNotlar)
+// router.delete('/:id', deleteNotlar)
+
+// Zincirleme route tanımlama
+
+router.route('/').get(getNotlar).post(setNotlar)
+router.route('/:id').put(updateNotlar).delete(deleteNotlar)
 
 export default router

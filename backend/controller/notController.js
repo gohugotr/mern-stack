@@ -6,7 +6,7 @@ export const setNotlar = (request, response) => {
   response.status(200).json({ Mesaj: `Controller POST Notlar` })
 }
 
-export const putNotlar = (req, res) => {
+export const updateNotlar = (req, res) => {
   res.status(200).json({ Mesaj: `Controller PUT Notlar ${req.params.id} Nolu ID` })
 }
 

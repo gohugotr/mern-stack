@@ -3,6 +3,15 @@ export const getNotlar = (request, response) => {
 }
 
 export const setNotlar = (request, response) => {
+  //console.log(request.body);
+
+  // Hata Yakalama. !request.body.Mesaj ifadesinde Mesaj büyük küçük harf duyarlıdır.
+  if (!request.body.Mesaj) {
+    //response.status(400).json({ Mesaj: 'Lütfen body alanına Mesaj giriniz.' })
+    response.status(400)
+    throw new Error('Lütfen body alanına Mesaj giriniz.');
+  }
+
   response.status(200).json({ Mesaj: `Controller POST Notlar` })
 }
 

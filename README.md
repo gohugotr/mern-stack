@@ -37,7 +37,7 @@ const PORT = process.env.PORT
 ```
 
 - Postman'dan kontrol için `localhost:8080` yazıp GET metodunu çalıştırabiliriz
-- `server.js` içinde `app` için ***GET*** metodu oluşturuyoruz. İki parametre alıyor.
+- `server.js` içinde `app` için **_GET_** metodu oluşturuyoruz. İki parametre alıyor.
 
 ```js script
 app.get('/api/notlar',(req, res) => {
@@ -49,8 +49,8 @@ app.get('/api/notlar',(req, res) => {
 - JSON olarak da gönderebiliriz
 
 ```js script
-app.get('/api/notlar',(request, response) => {
-    response.json({mesaj:'Notlar'}) // Burada json içine nesne alıyor.
+app.get('/api/notlar', (request, response) => {
+  response.json({ mesaj: 'Notlar' }) // Burada json içine nesne alıyor.
 })
 ```
 
@@ -65,12 +65,12 @@ app.get('/api/notlar',(request, response) => {
 - **status** kodlarını kullanma yöntemi
 
 ```js script
-    const not = {
-        ad: 'İlk Not',
-        icerik: 'İlk içeriğimizdi',
-        oncelik: 3
-    }
-    response.status(200).json(not)
+const not = {
+  ad: 'İlk Not',
+  icerik: 'İlk içeriğimizdi',
+  oncelik: 3,
+}
+response.status(200).json(not)
 ```
 
 ## Rota tanımlama
@@ -96,3 +96,5 @@ import notlarRota from './routes/notRoute.js'
 
 app.use('/api/notlar', notlarRota)
 ```
+
+- `yarn add express-async-handler` asenkron işlemleri için. Çünkü MongoDB kullanacaz.

@@ -25,11 +25,14 @@ const app = express()
 
 // app.listen(PORT, serverFonksiyonu);
 import notlarRota from './routes/notRoute.js'
+import { hataYakala } from './middlewares/errorMiddlewares.js'
 
 // Body verisini alma için
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.use('/api/notlar', notlarRota)
+
+app.use(hataYakala)
 
 app.listen(PORT, () => console.log(`Server ${PORT} üzerinden yayında`))

@@ -2,6 +2,15 @@
 
 **Kaynak :** [MongoDB ExpressJS React ve NodeJS ile Uygulama Geliştirmenin Temellerini Öğreniyorum](https://www.udemy.com/course/mern-stack-ile-uygulama-gelistirme-kursu-2022/)
 
+mern
+test123
+
+Database name
+mernapp
+Collection name
+notlar
+
+
 - `npm init`
 - `yarn add express mongoose dotenv colors`
 - `yarn add -D nodemon`

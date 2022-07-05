@@ -26,6 +26,7 @@ const app = express()
 // app.listen(PORT, serverFonksiyonu);
 import notlarRota from './routes/notRoute.js'
 import { hataYakala } from './middlewares/errorMiddlewares.js'
+import { baglan } from './config/db.js'
 
 // Body verisini alma için
 app.use(express.urlencoded({ extended: true }))
@@ -35,4 +36,5 @@ app.use('/api/notlar', notlarRota)
 
 app.use(hataYakala)
 
+baglan() // mongoose ile db bağlantısı yapıldı.
 app.listen(PORT, () => console.log(`Server ${PORT} üzerinden yayında`))

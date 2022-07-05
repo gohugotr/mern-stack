@@ -1,5 +1,6 @@
 import express, { request } from 'express'
 import dotenv from 'dotenv'
+import colors from 'colors'
 
 dotenv.config()
 
@@ -37,4 +38,4 @@ app.use('/api/notlar', notlarRota)
 app.use(hataYakala)
 
 baglan() // mongoose ile db bağlantısı yapıldı.
-app.listen(PORT, () => console.log(`Server ${PORT} üzerinden yayında`))
+app.listen(PORT, () => console.log(`Server ${PORT} üzerinden yayında`.magenta.bold)) //.magenta.italic ile ve colors paketi import edilerek console renklendirildi.

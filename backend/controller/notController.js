@@ -1,3 +1,4 @@
+import { request, response } from 'express'
 import asyncHandler from 'express-async-handler'
 
 import notModel from '../models/notModel.js'
@@ -36,9 +37,36 @@ export const setNotlar = asyncHandler(async (request, response) => {
 })
 
 export const updateNotlar = asyncHandler(async (req, res) => {
-  res.status(200).json({ Mesaj: `Controller PUT Notlar ${req.params.id} Nolu ID` })
+  //res.status(200).json({ Mesaj: `Controller PUT Notlar ${req.params.id} Nolu ID` })
+
+  // Önce id sayesinde tek bir notu buluyoruz. Daha sonra bu notun verisini değiştirebiliriz.
+  const not = await notModel.findById(req.params.id)
+
+  //Not bulunamazsa hata mesajı veriyoruz
+  if (!not) {
+    res.status(400)
+    throw new Error(`${req.params.id} id'sine sahip Not bulunamadı`)
+  }
+
+  // Not bulunduysa body kısmında güncelleme yapıyoruz
+  // {new: true} paramtresiyle güncellenmiş olan kaydı getiriyoruz.
+  const guncelle = await notModel.findByIdAndUpdate(req.params.id, req.body, { new: true })
+
+  // Son olarak, kullanıcıya güncellenmiş Not bilgisini gösteriyoruz.
+  res.status(200).json(guncelle)
 })
 
 export const deleteNotlar = asyncHandler(async (req, res) => {
-  res.status(200).json({ Mesaj: `Controller DELETE Notlar ${req.params.id} Nolu ID` })
+  //res.status(200).json({ Mesaj: `Controller DELETE Notlar ${req.params.id} Nolu ID` })
+  const not = await notModel.findById(req.params.id)
+  const notlar = await notModel.find()
+
+  if(!not){
+    res.status(400)
+    throw new Error(` id'sine sahip Not bulunamadı`)
+  }
+
+  await not.remove()
+
+  res.status(200).json(notlar)
 })

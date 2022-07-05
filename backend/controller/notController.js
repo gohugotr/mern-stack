@@ -3,7 +3,10 @@ import asyncHandler from 'express-async-handler'
 import notModel from '../models/notModel.js'
 
 export const getNotlar = asyncHandler(async (request, response) => {
-  response.status(200).json({ Mesaj: `Controller GET Notlar` })
+  //response.status(200).json({ Mesaj: `Controller GET Notlar` })
+    const notlar = await notModel.find()
+
+    response.status(200).json(notlar)
 })
 
 export const setNotlar = asyncHandler(async (request, response) => {
